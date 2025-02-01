@@ -7,21 +7,21 @@ export const FeaturedWines = () => {
       name: "Château Margaux 2015",
       region: "Bordeaux, France",
       price: 599.99,
-      image: "https://images.unsplash.com/photo-1586370434639-0fe43b2d32d6"
+      image: "https://images.unsplash.com/photo-1586370434639-0fe43b2d32d6?auto=format&fit=crop&q=80"
     },
     {
       id: 2,
       name: "Opus One 2018",
       region: "Napa Valley, USA",
       price: 399.99,
-      image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809"
+      image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&q=80"
     },
     {
       id: 3,
       name: "Sassicaia 2017",
       region: "Tuscany, Italy",
       price: 349.99,
-      image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3"
+      image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80"
     }
   ];
 

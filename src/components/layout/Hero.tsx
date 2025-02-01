@@ -19,7 +19,7 @@ export const Hero = () => {
         </div>
         <div className="md:w-1/2 mt-8 md:mt-0 relative h-[400px]">
           <Image
-            src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb"
+            src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80"
             alt="Premium Wine Selection"
             priority
             fill
