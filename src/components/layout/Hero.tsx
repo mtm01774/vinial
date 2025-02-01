@@ -17,13 +17,14 @@ export const Hero = () => {
             <Button variant="secondary">Learn More</Button>
           </div>
         </div>
-        <div className="md:w-1/2 mt-8 md:mt-0">
+        <div className="md:w-1/2 mt-8 md:mt-0 relative h-[400px]">
           <Image
             src="/images/hero-wine.jpg"
             alt="Premium Wine Selection"
-            width={600}
-            height={400}
-            className="rounded-lg shadow-xl"
+            priority
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="rounded-lg shadow-xl object-cover"
           />
         </div>
       </div>

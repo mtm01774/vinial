@@ -9,7 +9,20 @@ export const FeaturedWines = () => {
       price: 599.99,
       image: "/images/wine-1.jpg"
     },
-    // ... more wines
+    {
+      id: 2,
+      name: "Opus One 2018",
+      region: "Napa Valley, USA",
+      price: 399.99,
+      image: "/images/wine-2.jpg"
+    },
+    {
+      id: 3,
+      name: "Sassicaia 2017",
+      region: "Tuscany, Italy",
+      price: 349.99,
+      image: "/images/wine-3.jpg"
+    }
   ];
 
   return (
