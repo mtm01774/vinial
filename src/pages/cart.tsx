@@ -2,19 +2,52 @@ import { Layout } from '../components/layout/Layout';
 import { useCart } from '../hooks/useCart';
 import { Button } from '../components/ui/Button';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
-export default function Cart() {
+export default function CartPage() {
   const { cartItems, removeFromCart, updateQuantity, total } = useCart();
+  const { locale } = useRouter();
+
+  const translations = {
+    pt: {
+      title: 'Carrinho de Compras',
+      empty: 'Seu carrinho está vazio',
+      continue: 'Continuar Comprando',
+      remove: 'Remover',
+      summary: 'Resumo do Pedido',
+      subtotal: 'Subtotal',
+      shipping: 'Frete',
+      shippingValue: 'Grátis',
+      total: 'Total',
+      checkout: 'Finalizar Compra',
+      currency: 'R$',
+    },
+    en: {
+      title: 'Shopping Cart',
+      empty: 'Your cart is empty',
+      continue: 'Continue Shopping',
+      remove: 'Remove',
+      summary: 'Order Summary',
+      subtotal: 'Subtotal',
+      shipping: 'Shipping',
+      shippingValue: 'Free',
+      total: 'Total',
+      checkout: 'Proceed to Checkout',
+      currency: '$',
+    },
+  };
+
+  const t = translations[locale as keyof typeof translations] || translations.pt;
 
   if (cartItems.length === 0) {
     return (
       <Layout>
         <div className="container mx-auto px-6 py-16">
-          <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
+          <h1 className="text-3xl font-bold mb-8">{t.title}</h1>
           <div className="text-center py-16">
-            <p className="text-gray-600 mb-8">Your cart is empty</p>
+            <p className="text-gray-600 mb-8">{t.empty}</p>
             <Button variant="primary" onClick={() => window.history.back()}>
-              Continue Shopping
+              {t.continue}
             </Button>
           </div>
         </div>
@@ -25,7 +58,7 @@ export default function Cart() {
   return (
     <Layout>
       <div className="container mx-auto px-6 py-16">
-        <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
+        <h1 className="text-3xl font-bold mb-8">{t.title}</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             {cartItems.map((item) => (
@@ -44,7 +77,9 @@ export default function Cart() {
                 </div>
                 <div className="flex-grow">
                   <h3 className="text-lg font-semibold">{item.name}</h3>
-                  <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                  <p className="text-gray-600">
+                    {t.currency} {item.price.toFixed(2)}
+                  </p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="flex items-center border rounded-lg">
@@ -66,7 +101,7 @@ export default function Cart() {
                     className="text-red-500 hover:text-red-700"
                     onClick={() => removeFromCart(item.id)}
                   >
-                    Remove
+                    {t.remove}
                   </button>
                 </div>
               </div>
@@ -74,22 +109,26 @@ export default function Cart() {
           </div>
           <div className="lg:col-span-1">
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
+              <h2 className="text-xl font-semibold mb-4">{t.summary}</h2>
               <div className="border-t pt-4">
                 <div className="flex justify-between mb-2">
-                  <span>Subtotal</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>{t.subtotal}</span>
+                  <span>
+                    {t.currency} {total.toFixed(2)}
+                  </span>
                 </div>
                 <div className="flex justify-between mb-2">
-                  <span>Shipping</span>
-                  <span>Free</span>
+                  <span>{t.shipping}</span>
+                  <span>{t.shippingValue}</span>
                 </div>
                 <div className="flex justify-between font-semibold text-lg border-t pt-4">
-                  <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>{t.total}</span>
+                  <span>
+                    {t.currency} {total.toFixed(2)}
+                  </span>
                 </div>
                 <Button variant="primary" className="w-full mt-6">
-                  Proceed to Checkout
+                  {t.checkout}
                 </Button>
               </div>
             </div>
