@@ -1,0 +1,151 @@
+version: 1
+
+ignore:
+
+- node_modules
+- .next
+- .vercel
+- .git
+- build
+- dist
+- coverage
+
+rules:
+
+- name: "Main Structure"
+path: "."
+children:
+    - name: "src"
+    children:
+        - name: "components"
+        children:
+            - name: "layout"
+            children:
+                - name: "Header.tsx"
+                - name: "Footer.tsx"
+                - name: "Layout.tsx"
+            - name: "ui"
+            children:
+                - name: "Button.tsx"
+                - name: "Input.tsx"
+                - name: "Modal.tsx"
+            - name: "wine"
+            children:
+                - name: "WineCard.tsx"
+                - name: "WineList.tsx"
+                - name: "WineDetails.tsx"
+            - name: "subscription"
+            children:
+                - name: "SubscriptionPlans.tsx"
+                - name: "SubscriptionForm.tsx"
+            - name: "checkout"
+            children:
+                - name: "Cart.tsx"
+                - name: "Checkout.tsx"
+                - name: "PaymentForm.tsx"
+            - name: "auth"
+            children:
+                - name: "LoginForm.tsx"
+                - name: "RegisterForm.tsx"
+                - name: "AgeVerificationModal.tsx"
+        - name: "pages"
+        children:
+            - name: "index.tsx"
+            - name: "subscription.tsx"
+            - name: "shop.tsx"
+            - name: "about.tsx"
+            - name: "contact.tsx"
+            - name: "faq.tsx"
+            - name: "customer-area"
+            children:
+                - name: "index.tsx"
+                - name: "orders.tsx"
+                - name: "subscriptions.tsx"
+                - name: "profile.tsx"
+            - name: "api"
+            children:
+                - name: "auth"
+                children:
+                    - name: "[...nextauth].ts"
+                - name: "checkout.ts"
+                - name: "subscription.ts"
+        - name: "styles"
+        children:
+            - name: "globals.css"
+            - name: "components.css"
+        - name: "utils"
+        children:
+            - name: "api.ts"
+            - name: "validation.ts"
+            - name: "formatters.ts"
+            - name: "constants.ts"
+        - name: "hooks"
+        children:
+            - name: "useSubscription.ts"
+            - name: "useCart.ts"
+            - name: "useAuth.ts"
+            - name: "useWine.ts"
+        - name: "context"
+        children:
+            - name: "AuthContext.tsx"
+            - name: "CartContext.tsx"
+        - name: "types"
+        children:
+            - name: "index.ts"
+            - name: "wine.ts"
+            - name: "subscription.ts"
+            - name: "user.ts"
+        - name: "services"
+        children:
+            - name: "api.ts"
+            - name: "auth.ts"
+            - name: "subscription.ts"
+            - name: "wine.ts"
+        - name: "locales"
+        children:
+            - name: "en.json"
+            - name: "pt.json"
+    - name: "server"
+    children:
+        - name: "src"
+        children:
+            - name: "main.ts"
+            - name: "app.module.ts"
+            - name: "modules"
+            children:
+                - name: "auth"
+                - name: "wine"
+                - name: "subscription"
+                - name: "user"
+            - name: "config"
+            children:
+                - name: "database.config.ts"
+                - name: "jwt.config.ts"
+        - name: "test"
+        - name: "nest-cli.json"
+    - name: "public"
+    children:
+        - name: "images"
+        - name: "fonts"
+    - name: "config"
+    children:
+        - name: "next.config.js"
+        - name: "tsconfig.json"
+        - name: "tailwind.config.js"
+        - name: "postcss.config.js"
+        - name: "jest.config.js"
+    - name: "scripts"
+    children:
+        - name: "seed-db.ts"
+        - name: "generate-sitemap.ts"
+    - name: ".env.example"
+    - name: ".gitignore"
+    - name: "package.json"
+    - name: "[README.md](http://readme.md/)"
+- name: "Tests"
+path: "src/**tests**"
+children:
+    - name: "components"
+    - name: "pages"
+    - name: "utils"
+    - name: "hooks"

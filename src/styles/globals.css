@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #722F37;
+  --secondary-color: #2C1810;
+}
+
+body {
+  @apply antialiased text-gray-800;
+}
+
+.container {
+  @apply max-w-7xl mx-auto;
+} 
