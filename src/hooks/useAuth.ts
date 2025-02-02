@@ -1,30 +1,17 @@
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+import { User } from '../types/user';
 
-interface User {
-  id: string;
-  name?: string | null;
-  email?: string | null;
-  image?: string | null;
-}
-
-export const useAuth = () => {
-  const { data: session, status } = useSession();
+export function useAuth() {
+  const { data: session } = useSession();
 
   const user: User | null = session?.user ? {
-    id: session.user.id || '',
-    name: session.user.name,
-    email: session.user.email,
-    image: session.user.image,
+    name: session.user.name || '',
+    email: session.user.email || '',
+    image: session.user.image || null,
   } : null;
-
-  const isAuthenticated = status === 'authenticated';
-  const isLoading = status === 'loading';
 
   return {
     user,
-    isAuthenticated,
-    isLoading,
-    signIn,
-    signOut,
+    isAuthenticated: !!session,
   };
-}; 
+} 

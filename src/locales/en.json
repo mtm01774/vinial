@@ -1,0 +1,35 @@
+{
+  "shop": {
+    "title": "Our Wine Selection",
+    "subtitle": "Discover our exclusive collection of premium wines from around the world",
+    "errorLoading": "An error occurred while loading wines",
+    "noWines": "No wines found",
+    "filters": {
+      "all": "All",
+      "red": "Red",
+      "white": "White",
+      "sparkling": "Sparkling",
+      "rose": "Rosé"
+    }
+  },
+  "cart": {
+    "title": "Cart",
+    "emptyCart": "Your cart is empty",
+    "continueShopping": "Continue shopping",
+    "total": "Total",
+    "checkout": "Checkout",
+    "quantity": "Quantity",
+    "remove": "Remove"
+  },
+  "home": {
+    "hero": {
+      "title": "Discover Exceptional Wines",
+      "subtitle": "Curated selections from the finest vineyards",
+      "cta": "Shop Now"
+    },
+    "featured": {
+      "title": "Featured Wines",
+      "subtitle": "Our selection of the finest wines"
+    }
+  }
+} 

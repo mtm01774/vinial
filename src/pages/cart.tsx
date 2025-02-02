@@ -1,11 +1,11 @@
-import { Layout } from '../components/layout/Layout';
+import Layout from '../components/layout/Layout';
 import { useCart } from '../hooks/useCart';
 import { Button } from '../components/ui/Button';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, updateQuantity, total } = useCart();
+  const { cart, removeFromCart, updateQuantity, total } = useCart();
   const { locale } = useRouter();
 
   const translations = {
@@ -39,7 +39,7 @@ export default function CartPage() {
 
   const t = translations[locale as keyof typeof translations] || translations.pt;
 
-  if (cartItems.length === 0) {
+  if (cart.length === 0) {
     return (
       <Layout>
         <div className="container mx-auto px-6 py-16">
@@ -61,7 +61,7 @@ export default function CartPage() {
         <h1 className="text-3xl font-bold mb-8">{t.title}</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            {cartItems.map((item) => (
+            {cart.map((item) => (
               <div
                 key={item.id}
                 className="flex flex-col md:flex-row items-center gap-4 p-4 bg-white rounded-lg shadow-sm mb-4"

@@ -1,0 +1,35 @@
+{
+  "shop": {
+    "title": "Nossa Seleção de Vinhos",
+    "subtitle": "Descubra nossa coleção exclusiva de vinhos premium de todo o mundo",
+    "errorLoading": "Ocorreu um erro ao carregar os vinhos",
+    "noWines": "Nenhum vinho encontrado",
+    "filters": {
+      "all": "Todos",
+      "red": "Tintos",
+      "white": "Brancos",
+      "sparkling": "Espumantes",
+      "rose": "Rosés"
+    }
+  },
+  "cart": {
+    "title": "Carrinho",
+    "emptyCart": "Seu carrinho está vazio",
+    "continueShopping": "Continuar comprando",
+    "total": "Total",
+    "checkout": "Finalizar compra",
+    "quantity": "Quantidade",
+    "remove": "Remover"
+  },
+  "home": {
+    "hero": {
+      "title": "Descubra Vinhos Excepcionais",
+      "subtitle": "Seleções curadas das melhores vinícolas",
+      "cta": "Comprar Agora"
+    },
+    "featured": {
+      "title": "Vinhos em Destaque",
+      "subtitle": "Nossa seleção dos melhores vinhos"
+    }
+  }
+} 

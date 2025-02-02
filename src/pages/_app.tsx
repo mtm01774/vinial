@@ -1,13 +1,16 @@
-import { AppProps } from 'next/app';
-import { SessionProvider } from 'next-auth/react';
+import type { AppProps } from 'next/app';
+import { CartProvider } from '../context/CartContext';
+import { AgeVerificationModal } from '../components/auth/AgeVerificationModal';
+import { useAgeVerification } from '../hooks/useAgeVerification';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
-  return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
-  );
-}
+export default function App({ Component, pageProps }: AppProps) {
+  const { isModalOpen, onClose } = useAgeVerification();
 
-export default MyApp; 
+  return (
+    <CartProvider>
+      <AgeVerificationModal isOpen={isModalOpen} onClose={onClose} />
+      <Component {...pageProps} />
+    </CartProvider>
+  );
+} 

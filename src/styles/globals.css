@@ -5,12 +5,79 @@
 :root {
   --primary-color: #722F37;
   --secondary-color: #2C1810;
+  --background: #ffffff;
+  --foreground: #000000;
 }
 
-body {
-  @apply antialiased text-gray-800;
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  
+  body {
+    @apply text-gray-800 bg-white min-h-screen;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
 }
 
-.container {
-  @apply max-w-7xl mx-auto;
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Image styles */
+.object-cover {
+  object-fit: cover;
+}
+
+/* Image container styles */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image-container > span {
+  position: unset !important;
+}
+
+.image-container img {
+  position: relative !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.next-image-container {
+  width: 100%;
+  position: relative;
+}
+
+.next-image-container > span {
+  position: unset !important;
+}
+
+.next-image-container .next-image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+.image-fill {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 } 
